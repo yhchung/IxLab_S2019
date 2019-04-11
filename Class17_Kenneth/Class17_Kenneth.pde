@@ -1,3 +1,13 @@
+/* 
+ Author: Kenneth
+ Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/hw1882/recitation-6-processing-basics-by-haoquan-wang-kenneth/
+ Date: March 31, 2019
+ 
+ Modified by Young / young.chung@nyu.edu
+ Date: April 11, 2019
+ 
+ */
+
 noStroke();
 
 size(1000,1500);

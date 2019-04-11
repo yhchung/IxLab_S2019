@@ -1,3 +1,13 @@
+/* 
+ Author: Nathan
+ Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/zw1806/cross-wire-zhenming-wang-professor-young/
+ Date: March 31, 2019
+ 
+ Modified by Young / young.chung@nyu.edu
+ Date: April 11, 2019
+ 
+ */
+
 size(600, 600);
 background(50);
 smooth();

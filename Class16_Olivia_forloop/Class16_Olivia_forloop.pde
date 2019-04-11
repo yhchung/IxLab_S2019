@@ -3,7 +3,7 @@
  Source: https://wp.nyu.edu/shanghai-ima-documentation/author/mz2375/
  Date: March 31, 2019
  
- Modified by Young
+ Modified by Young / young.chung@nyu.edu
  Date: April 9, 2019
  
  */
