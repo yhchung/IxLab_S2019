@@ -9,6 +9,12 @@
  
  */
 
+int angle = 0;
+int x = 0;
+int y = 0;
+int xspeed = 0; 
+int yspeed = 0;
+
 void setup()
 {
   size(600, 600);
@@ -17,6 +23,34 @@ void setup()
 void draw()
 {
   background(255*mouseX/width, 255*mouseY/height, 0);
+  
+  x = x + xspeed;
+  y = y + yspeed;
+  drawObject1(x, y);
+  //drawObject2(mouseX, mouseY);
+}
+
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == RIGHT) {
+      xspeed = 3;
+    } else if (keyCode == LEFT) {
+      xspeed=-3;
+    } else if (keyCode == UP ) {
+      yspeed= -3;
+    } else if (keyCode == DOWN ) {
+      yspeed = 3;
+    }
+  }
+ 
+  
+  
+}
+
+void drawObject1(int x, int y) {
+  pushMatrix();
+  
+  translate(x, y);
   noStroke();
   beginShape();
   fill(211, 211, 211, 200);
@@ -52,32 +86,42 @@ void draw()
   vertex(170, 300);
   vertex(210, 100);
   endShape();
+  popMatrix();
+}
+
+void drawObject2(int x, int y) {
+  pushMatrix();
+  //translate(530, 100);
+  translate(x, y);
+  rotate(radians(angle));
+  angle += 1;
 
   noStroke();
   fill(211);
-  rect(310, 300, 120, 90);
+  rect(310-530, 300-100, 120, 90);
 
   fill(190);
   beginShape();
-  vertex(310, 300);
-  vertex(410, 150);
-  vertex(490, 150);
-  vertex(430, 300);
+  vertex(310-530, 300-100);
+  vertex(410-530, 150-100);
+  vertex(490-530, 150-100);
+  vertex(430-530, 300-100);
   endShape();
 
   fill(105);
   beginShape();
-  vertex(410, 150);
-  vertex(490, 150);
-  vertex(530, 100);
+  vertex(410-530, 150-100);
+  vertex(490-530, 150-100);
+  vertex(530-530, 100-100);
   endShape();
 
   fill(80);
   beginShape();
-  vertex(530, 100);
-  vertex(490, 150);
-  vertex(430, 300);
-  vertex(430, 390);
-  vertex(490, 315);
+  vertex(530-530, 100-100);
+  vertex(490-530, 150-100);
+  vertex(430-530, 300-100);
+  vertex(430-530, 390-100);
+  vertex(490-530, 315-100);
   endShape();
+  popMatrix();
 }
