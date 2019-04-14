@@ -1,7 +1,8 @@
 /*
   Author: Tom
-  Source: https://wp.nyu.edu/shanghai-ima-documentation/author/lz1802/
- 
+  Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/young-chung/lz1802/recitation-7-processing-animation-by-liyang-zhu-tom/
+  Date: April 13, 2019
+  
  */
 
 float angle = 0f;
