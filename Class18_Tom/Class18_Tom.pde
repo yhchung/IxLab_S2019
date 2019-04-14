@@ -1,11 +1,19 @@
 /*
   Author: Tom
-  Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/young-chung/lz1802/recitation-7-processing-animation-by-liyang-zhu-tom/
-  Date: April 13, 2019
-  
+ Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/young-chung/lz1802/recitation-7-processing-animation-by-liyang-zhu-tom/
+ Date: April 13, 2019
+ 
+ Modified by Young / young.chung@nyu.edu
+ Date: April 14, 2019
  */
 
 float angle = 0f;
+// float[] f = { 0.3, 0.4, 0.5 }; 
+// float[] posX .... 
+// float[] posY ....
+
+int[] posX = { 100, 150, 200, 50 };
+int[] posY = { 304, 431, 343, 11 };
 
 void setup()
 {
@@ -17,18 +25,31 @@ void setup()
 void draw()
 {
   background(0);
-  translate(mouseX, mouseY);
-  float sizeScale = 0.8 - sqrt((mouseX-width/2)*(mouseX-width/2)+(mouseY-height/2)*(mouseY-height/2))/1000f;
+  //drawHexagon(mouseX, mouseY);
+  // draw 5 Hexagons using for-loop and arrays
+  for (int i =0;i<4;i++){
+    drawHexagon(posX[i],posY[i]);
+  }
+  angle += 1;
+  // angle += speedAngle 
+  // speedAngle = map ( valuefromArduino, 0, 1024, 0, 1);
+}
+
+void drawHexagon(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  float sizeScale = 0.8 - sqrt((x-width/2)*(x-width/2)+(y-height/2)*(y-height/2))/1000f;
   for (int i=0; i<60; i++)
   {
     rotate(radians(1.8 + angle * (1 - i/500)));
 
-    hexagon(map(abs(i-(float)mouseX/width*60f+(float)mouseY/height*60f), 0, 59, 0, 255), 
+    hexagon(map(abs(i-(float)x/width*60f+(float)y/height*60f), 0, 59, 0, 255), 
       255, 
       255, 
       (240-4*i)*sizeScale);
   }
-  angle += 0.08;
+  
+  popMatrix();
 }
 
 void hexagon(float r, float g, float b, float size)
