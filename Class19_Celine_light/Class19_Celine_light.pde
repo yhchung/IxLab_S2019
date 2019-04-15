@@ -5,6 +5,7 @@ int positionX = 300;
 int positionY = 300;
 
 int xspeed = 0;
+boolean light = false;
 
 void setup() {
   size(500, 500);
@@ -97,13 +98,20 @@ void drawCloud(int x, int y, int positionX, int positionY) {
 
 void drawBase() {
   noStroke();
-  
-  // light part
-  fill(255, 160, 122);
-  rect(212.5, 260, 75, 30);
 
-  fill(255, 127, 80);
-  rect(212.5, 260, 75, 10);
+  // light part
+
+  if (light) {
+    fill(255, 160, 122);
+    rect(212.5, 260, 75, 30);
+    fill(255, 127, 80);
+    rect(212.5, 260, 75, 10);
+  } else {
+    fill(245, 245, 245);
+    rect(212.5, 260, 75, 30);
+    fill(220, 220, 220);
+    rect(212.5, 260, 75, 10);
+  }
   // end of light part
 
   strokeWeight(3);
@@ -131,4 +139,8 @@ void keyPressed() {
   } else if (keyCode == SHIFT) {
     xspeed = 0;
   }
+}
+
+void mousePressed() {
+  light = !light;
 }
