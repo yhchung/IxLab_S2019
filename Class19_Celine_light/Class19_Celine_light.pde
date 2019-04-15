@@ -52,15 +52,6 @@ void draw() {
     myPort.write('L');
   }
 
-
-  //// to send a value to Arduino
-  //if (mousePressed) {
-  //  light = true;
-  //  myPort.write('H');
-  //} else {
-  //  light = false;
-  //  myPort.write('L');
-  //}
   
 }
 
