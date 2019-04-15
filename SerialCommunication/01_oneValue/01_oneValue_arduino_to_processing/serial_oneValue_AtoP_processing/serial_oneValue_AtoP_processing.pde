@@ -4,10 +4,9 @@
 
 import processing.serial.*;
 
-
 Serial myPort;
 int valueFromArduino;
-
+int PORT_INDEX = 3;
 
 void setup() {
   size(500, 500);

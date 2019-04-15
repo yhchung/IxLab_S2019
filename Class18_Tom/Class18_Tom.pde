@@ -8,9 +8,6 @@
  */
 
 float angle = 0f;
-// float[] f = { 0.3, 0.4, 0.5 }; 
-// float[] posX .... 
-// float[] posY ....
 
 int[] posX = { 100, 150, 200, 50 };
 int[] posY = { 304, 431, 343, 11 };

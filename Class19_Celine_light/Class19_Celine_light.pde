@@ -1,3 +1,9 @@
+import processing.serial.*;
+
+Serial myPort;
+int PORT_INDEX = 3;
+int valueFromArduino;
+
 int x = 0;
 int y = 0;
 
@@ -11,6 +17,11 @@ void setup() {
   size(500, 500);
   pixelDensity(2);
   background(175, 238, 238);
+
+  printArray(Serial.list());
+  // this prints out the list of all available serial ports on your computer.
+
+  myPort = new Serial(this, Serial.list()[ PORT_INDEX ], 9600);
 }
 
 void draw() {
@@ -26,6 +37,31 @@ void draw() {
 
   // Front Cloud
   drawCloud(x, y, 300, 180);
+
+  // to read the value from Arduino
+  while ( myPort.available() > 0) {
+    valueFromArduino = myPort.read();
+  }
+  println(valueFromArduino);//This prints out the values from Arduino
+  
+  if (valueFromArduino == 1 || mousePressed) {
+    light = true;
+    myPort.write('H');
+  } else {
+    light = false;
+    myPort.write('L');
+  }
+
+
+  //// to send a value to Arduino
+  //if (mousePressed) {
+  //  light = true;
+  //  myPort.write('H');
+  //} else {
+  //  light = false;
+  //  myPort.write('L');
+  //}
+  
 }
 
 void drawAntenna () {
@@ -139,8 +175,4 @@ void keyPressed() {
   } else if (keyCode == SHIFT) {
     xspeed = 0;
   }
-}
-
-void mousePressed() {
-  light = !light;
 }
