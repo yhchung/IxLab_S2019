@@ -1,3 +1,13 @@
+/*
+ Author: Celine
+ Title: Harbour Centre
+ Source: https://wp.nyu.edu/shanghai-ima-documentation/foundations/interaction-lab/cy1323/recitation-6-processing-basics-celine-yu/
+ Date: April 1, 2019
+ 
+ 
+ */
+
+
 int x = 0;
 int y = 0;
 
@@ -97,7 +107,7 @@ void drawCloud(int x, int y, int positionX, int positionY) {
 
 void drawBase() {
   noStroke();
-  
+
   // light part
   fill(255, 160, 122);
   rect(212.5, 260, 75, 30);
