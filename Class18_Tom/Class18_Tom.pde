@@ -8,7 +8,8 @@
  */
 
 float angle = 0f;
-
+float speedAngle;
+int valueFromArduino;
 int[] posX = { 100, 150, 200, 50 };
 int[] posY = { 304, 431, 343, 11 };
 
@@ -27,9 +28,10 @@ void draw()
   for (int i =0;i<4;i++){
     drawHexagon(posX[i],posY[i]);
   }
-  angle += 1;
-  // angle += speedAngle 
-  // speedAngle = map ( valuefromArduino, 0, 1024, 0, 1);
+  //angle += 10;
+   
+   speedAngle = map ( valueFromArduino, 0, 255, 0.1, 10);
+   angle += speedAngle;
 }
 
 void drawHexagon(int x, int y) {

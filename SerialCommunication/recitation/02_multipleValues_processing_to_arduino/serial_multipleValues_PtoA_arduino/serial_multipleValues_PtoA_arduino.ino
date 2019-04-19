@@ -10,7 +10,7 @@
   by sending the values array back to the Processing sketch.
  **/
 
-#define NUM_OF_VALUES 1    /** YOU MUST CHANGE THIS ACCORDING TO YOUR PROJECT **/
+#define NUM_OF_VALUES 2    /** YOU MUST CHANGE THIS ACCORDING TO YOUR PROJECT **/
 
 
 /** DO NOT REMOVE THESE **/
@@ -23,7 +23,7 @@ int values[NUM_OF_VALUES];
 
 void setup() {
   Serial.begin(9600);
-  pinMode(13, OUTPUT); 
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
@@ -33,12 +33,14 @@ void loop() {
   // use elements in the values array
   // values[0]
   // values[1]
-  
-  if ( values[0] == 'H' ) {
+
+  if( values[0] == 'H' ) {
     digitalWrite(13, HIGH);
-  } else {
+  } else if ( values[0] == 'L')  {
     digitalWrite(13, LOW);
+    
   }
+
 }
 
 

@@ -1,17 +1,12 @@
-// IMA NYU Shanghai
-// Interaction Lab
-// This code sends one value from Arduino to Processing 
+
 
 void setup() {
-  Serial.begin(9600);
+  pinMode(13, OUTPUT);    // sets the digital pin 13 as output
 }
 
 void loop() {
-  int sensorValue = analogRead(A0) / 4;
-  
-  Serial.write(sensorValue);
-
-  // too fast communication might cause some latency in Processing
-  // this delay resolves the issue.
-  delay(10);
+  digitalWrite(13, HIGH); // sets the digital pin 13 on
+  delay(1000);            // waits for a second
+  digitalWrite(13, LOW);  // sets the digital pin 13 off
+  delay(1000);            // waits for a second
 }
