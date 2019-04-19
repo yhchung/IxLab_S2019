@@ -43,7 +43,7 @@ void draw() {
     valueFromArduino = myPort.read();
   }
   println(valueFromArduino);//This prints out the values from Arduino
-  
+
   if (valueFromArduino == 1 || mousePressed) {
     light = true;
     myPort.write('H');
@@ -51,8 +51,6 @@ void draw() {
     light = false;
     myPort.write('L');
   }
-
-  
 }
 
 void drawAntenna () {
@@ -70,27 +68,44 @@ void drawAntenna () {
 }
 
 void drawPlatform() {
+
+  // red
   strokeWeight(3);
   stroke(70, 130, 180);
-  fill(245, 245, 245);
+
+  if (light) {
+    fill(239, 65, 53);
+  } else {
+    fill(245, 245, 245);
+  }
   rect(193.75, 230, 112.5, 30, 0, 0, 10, 10);
 
   noStroke();
   fill(220, 220, 220);
   rect(194.9, 230, 110, 10);
 
+  // white
   strokeWeight(3);
   stroke(70, 130, 180);
-  fill(245, 245, 245);
+  if (light) {
+    fill(255, 255, 255);
+  } else {
+    fill(245, 245, 245);
+  }
   rect(173.75, 200, 152.5, 30, 0, 0, 10, 10);
 
   noStroke();
   fill(220, 220, 220);
   rect(174.9, 200, 150, 10);
 
+  // blue
   strokeWeight(3);
   stroke(70, 130, 180);
-  fill(245, 245, 245);
+  if (light) {
+    fill(0, 85, 164);
+  } else {
+    fill(245, 245, 245);
+  }
   rect(153.75, 170, 192.5, 30, 0, 0, 10, 10);
 
   noStroke();
@@ -128,17 +143,10 @@ void drawBase() {
 
   // light part
 
-  if (light) {
-    fill(255, 160, 122);
-    rect(212.5, 260, 75, 30);
-    fill(255, 127, 80);
-    rect(212.5, 260, 75, 10);
-  } else {
-    fill(245, 245, 245);
-    rect(212.5, 260, 75, 30);
-    fill(220, 220, 220);
-    rect(212.5, 260, 75, 10);
-  }
+  fill(245, 245, 245);
+  rect(212.5, 260, 75, 30);
+  fill(220, 220, 220);
+  rect(212.5, 260, 75, 10);
   // end of light part
 
   strokeWeight(3);
