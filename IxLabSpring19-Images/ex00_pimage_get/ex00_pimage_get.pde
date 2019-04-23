@@ -2,6 +2,7 @@ PImage img1;
 color mouseColor;
 float mouseR, mouseG, mouseB;
 void setup() {
+  pixelDensity(2);
   size(500,413);
   img1 = loadImage("bob.jpg");
 }
